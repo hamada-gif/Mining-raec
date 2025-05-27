@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>تحدي وسؤال - جماعي</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <div class="container">
+
+    <!-- شاشة الانضمام أو إنشاء غرفة -->
+    <div id="room-screen" class="screen active">
+      <h2>تحدي وسؤال - جماعي</h2>
+      <input type="text" id="player-name" placeholder="أدخل اسمك" />
+      <input type="text" id="room-id" placeholder="أدخل رمز الغرفة (للانضمام)" />
+      <button onclick="joinRoom()">الانضمام لغرفة</button>
+      <button onclick="createRoom()">إنشاء غرفة جديدة</button>
+      <p id="room-error" class="error"></p>
+    </div>
+
+    <!-- شاشة اللعبة -->
+    <div id="game-screen" class="screen">
+      <h2 id="player-turn"></h2>
+      <p>رمز الغرفة: <strong id="display-room-id"></strong></p>
+
+      <div class="question-challenge-wrapper">
+        <div class="box">
+          <h3>السؤال</h3>
+          <div id="question"></div>
+        </div>
+        <div class="box">
+          <h3>التحدي</h3>
+          <div id="challenge"></div>
+        </div>
+      </div>
+
+      <!-- منطقة إدخال وإرسال الإجابة -->
+      <div id="answer-section">
+          <textarea id="answer-input" placeholder="اكتب إجابتك هنا..."></textarea>
+          <button id="submit-answer-btn" onclick="submitAnswer()">إرسال الإجابة</button>
+      </div>
+
+      <!-- منطقة عرض الأجوبة -->
+      <div id="answers-log">
+          <h3>الأجوبة:</h3>
+          <ul id="answers-list"></ul>
+      </div>
+
+      <div class="btn-group">
+        <button onclick="selectOption(\'question\')">اختر السؤال</button>
+        <button onclick="selectOption(\'challenge\')">اختر التحدي</button>
+      </div>
+
+      <div id="scoreboard"></div>
+      <div id="emoji-container"></div>
+    </div>
+
+  </div>
+
+  <!-- Firebase SDK (Compat Version) -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
+  <script>
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyAfG2uAjNj35HmTLJfDqk7JKgSzjDulklE",
+      authDomain: "gaminig-mahfoudh.firebaseapp.com",
+      databaseURL: "https://gaminig-mahfoudh-default-rtdb.europe-west1.firebasedatabase.app/",
+      projectId: "gaminig-mahfoudh",
+      storageBucket: "gaminig-mahfoudh.firebasestorage.app",
+      messagingSenderId: "680438527803",
+      appId: "1:680438527803:web:466d69ad4325383521e91e",
+      measurementId: "G-D26ES97W6G"
+    };
+
+    // Initialize Firebase using compat version
+    firebase.initializeApp(firebaseConfig);
+    // The firebase object is now globally available for script.js
+  </script>
+
+  <!-- Main Game Script -->
+  <script src="../js/script.js"></script>
+</body>
+</html>
