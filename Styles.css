@@ -1,0 +1,165 @@
+body {
+  font-family: 'Cairo', sans-serif;
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  color: white;
+  margin: 0;
+  padding: 0;
+  direction: rtl;
+  text-align: center;
+}
+
+.container {
+  padding: 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.screen {
+  display: none;
+}
+.screen.active {
+  display: block;
+}
+
+input[type="text"],
+input[type="password"] {
+  padding: 10px;
+  margin: 10px;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+  width: 80%;
+  max-width: 300px;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 12px;
+  background-color: #ffa726;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+button:hover {
+  background-color: #fb8c00;
+}
+
+.error {
+  color: #ff5252;
+  font-weight: bold;
+}
+
+#scoreboard {
+  margin-top: 20px;
+}
+
+.question-challenge-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 30px auto;
+  max-width: 800px;
+}
+
+.box {
+  background-color: rgba(255, 255, 255, 0.12);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 20px;
+  font-size: 20px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.box:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 20px rgba(255, 152, 0, 0.6);
+}
+.box h3 {
+  margin-bottom: 10px;
+  color: #ffeb3b;
+  font-size: 22px;
+}
+#question {
+  color: #ffffff;
+  font-weight: bold;
+}
+#challenge {
+  color: #ffccbc;
+  font-weight: bold;
+}
+
+#emoji-container {
+  position: fixed;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.emoji {
+  position: absolute;
+  font-size: 30px;
+  animation: floatEmoji 2s ease-out forwards;
+}
+@keyframes floatEmoji {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-150px) scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* --- Added Styles for Answer Input and Button --- */
+#answer-section {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex; /* Use flexbox for better alignment */
+  flex-direction: column; /* Stack textarea and button vertically */
+  align-items: center; /* Center items horizontally */
+  gap: 10px; /* Add space between textarea and button */
+}
+
+#answer-input {
+  padding: 15px; /* Increased padding */
+  margin: 0; /* Remove default margin if any */
+  border-radius: 15px; /* More rounded corners */
+  border: 1px solid #ccc; /* Subtle border */
+  font-size: 16px;
+  width: 90%; /* Wider input */
+  max-width: 600px; /* Max width */
+  min-height: 80px; /* Minimum height for multi-line input */
+  resize: vertical; /* Allow vertical resize */
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.1); /* Inner shadow for depth */
+  background-color: rgba(255, 255, 255, 0.9); /* Slightly opaque white background */
+  color: #333; /* Darker text color for readability */
+  font-family: 'Cairo', sans-serif; /* Ensure consistent font */
+}
+
+#answer-input::placeholder {
+  color: #888; /* Lighter placeholder text */
+}
+
+/* Style for the submit button next to the answer input */
+#submit-answer-btn {
+  padding: 12px 25px; /* Slightly larger button */
+  border-radius: 10px;
+  background-color: #4CAF50; /* Green color for submit */
+  font-size: 17px;
+}
+#submit-answer-btn:hover {
+  background-color: #45a049;
+}
+
+/* Add some spacing for the button group */
+.btn-group {
+    margin-top: 20px;
+}
+/* --- End Added Styles --- */
+
